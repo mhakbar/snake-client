@@ -14,6 +14,10 @@ const connect = function () {
     console.log('disconnected from server', data);
   });
 
+  conn.on('connect', (connect) => {
+    console.log("Successfully connected to game server", connect);
+    conn.write('Name: HAM');
+  });
 
 
   return conn;
