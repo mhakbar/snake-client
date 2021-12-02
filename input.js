@@ -29,9 +29,13 @@ const handleUserInput = function (key) {
   } else if (key === "\u001b[D") {
     conn.write('Move: left');
     console.log(`Moved left`);
+  }
+    else if (key === "f") {
+      conn.write('Say: WOW');
+      console.log(`Say: WOW`);
 
 
 };
 };
 
-module.exports = {setupInput, handleUserInput};
+module.exports = {setupInput};
