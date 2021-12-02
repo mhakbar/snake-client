@@ -16,8 +16,36 @@ const connect = function () {
 
   conn.on('connect', (connect) => {
     console.log("Successfully connected to game server", connect);
+
+
     conn.write('Name: HAM');
+
+
+    // setTimeout(() => {
+    //   conn.write("Move: up");
+    // }, 500);
+
+    // setTimeout(() => {
+    //   conn.write("Move: up");
+    // }, 1000);
+
+    // setTimeout(() => {
+    //   conn.write("Move: up");
+    // }, 1500);
+
+    // setInterval(() => { 
+    //   conn.write("Move: left"); 
+    // }, 3000);
+
+    //use setInterval and setTimeout functions to automatically move your snake. setInterval keeps playing the same command on a loop on a given interval. 
+    
+    //conn.write("Move: down");
+    //conn.write("Move: right");
   });
+
+  // conn.on('move up', (up) => {
+  //   conn.write("Move: up", up);
+  // });
 
 
   return conn;
