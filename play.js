@@ -14,53 +14,60 @@
 //     console.log('disconnected from server', data);
 //   });
 
+const { connect } = require("./client");
+const { setupInput } = require("./input");
 
+console.log("Connecting ...");
+connect();
+
+setupInput();
+const conn = connect() ;
 
 //   return conn;
 // };
-const {connect} = require("./client");
+// const {connect} = require("./client");
 
 //connect();
 
 // setup interface to handle user input from stdin
 
-const setupInput = function () {
-  const stdin = process.stdin;
-  stdin.setRawMode(true);
-  stdin.setEncoding("utf8");
-  stdin.resume();
-  stdin.on('data', handleUserInput);
+// const setupInput = function () {
+//   const stdin = process.stdin;
+//   stdin.setRawMode(true);
+//   stdin.setEncoding("utf8");
+//   stdin.resume();
+//   stdin.on('data', handleUserInput);
   
-  return stdin;
-};
-const conn = connect() ;
-const handleUserInput = function (key) {
+//   return stdin;
+// };
 
-  if (key === "\u0003") {
-    process.exit();
-  } else if (key === "\u001b[A") {
-    conn.write('Move: up');
-    console.log(`Moved up`);
-  } else if (key === "\u001b[C") {
-    conn.write('Move: right');
-    console.log(`Moved right`);
-  } else if (key === "\u001b[B") {
-    conn.write('Move: down');
-    console.log(`Moved down`);
+// const handleUserInput = function (key) {
 
-  } else if (key === "\u001b[D") {
-    conn.write('Move: left');
-    console.log(`Moved left`);
+//   if (key === "\u0003") {
+//     process.exit();
+//   } else if (key === "\u001b[A") {
+//     conn.write('Move: up');
+//     console.log(`Moved up`);
+//   } else if (key === "\u001b[C") {
+//     conn.write('Move: right');
+//     console.log(`Moved right`);
+//   } else if (key === "\u001b[B") {
+//     conn.write('Move: down');
+//     console.log(`Moved down`);
+
+//   } else if (key === "\u001b[D") {
+//     conn.write('Move: left');
+//     console.log(`Moved left`);
 
 
   
   
 
-  // your code here
-};
-};
+//   // your code here
+// };
+// };
 
-setupInput();
+// setupInput();
 
 
 
